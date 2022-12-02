@@ -93,4 +93,52 @@ console.log('D yra: ', d);
 
 console.log('========== 8 uzduotis');
 // 8. Parašyti funkciją - lygineSuma.Funkcijos parametrai - du kintamieji.Testų reikalavimai - abu kitamieji turi būti arba skaičiai arba masyvai(negali būti vienas skaičius, kitas masyvas).
+// Jei kintamieji skaičiai, grąžinti skaičių sumą, jei kintamieji masyvai - grąžinti masyvų ilgių sumą.Jei abu kintamieji skaičiai arba masyvai, bet suma nelyginė - grąžinti tekstą, kad suma nelyginė. (10 taškų)
 
+function lygineSuma(a, b) {
+    if (typeof a === 'number') {
+        if ((a + b) % 2 === 1) {
+            return 'Suma nelyginė';
+        };
+        return a + b;
+    } else {
+        if ((a.length + b.length) % 2 === 1) {
+            return 'Suma nelyginė'
+        }
+        return a.length + b.length;
+    }
+}
+console.log(lygineSuma(['g', 'tsdf', 'ererw'], ['ereva', 5, NaN]));
+
+console.log('========== 9 uzduotis');
+// 9. Parašyti funkciją pirminisSkaicius.Funkcija turi vieną kintamąjį.Turi būti patikrinimas, kad kintamasis yra skaičius.Funkcija turi grąžinti ar pateiktas skaičius yra pirminis(pirminis
+// skaičius yra tas, kuris dalinasi tik iš savęs ir tik iš vieneto be liekanos.)(10 taškų)
+
+function pirminisSkaicius(a) {
+    if (typeof a !== 'number') {
+        return 'kintamasis nėra skaičius'
+    }
+    let pirminis = 0;
+    for (let i = 1; i < a; ++i) {
+        a % i === 0 ? pirminis++ : pirminis;
+    }
+    return pirminis <= 1 ? 'Skaičius YRA pirminis' : 'Skaičius NĖRA pirminis';
+}
+console.log(pirminisSkaicius(11));
+
+console.log('========== 10 uzduotis');
+
+// 10. Parašyti funkciją telefonoNumeris.Funkcija turi priimti vieną kintamąjį - masyvą.Masyvo elementai - skaičiai, ilgis - 10. Funkcija turi grąžinti telefono numerį tokiu formatu -
+//     "(XXX) XXX-XXXX". (10 taškų)
+
+function telefonoNumeris(a) {
+    let nr = "(XXX) XXX-XXXX";
+    nr = nr.split('')
+
+    const nr2 = nr.map((n, i) => n === 'X' ? a[i] : n);
+
+    return nr2;
+}
+console.log(telefonoNumeris([1, 2, 3, 4, 5, 6, 7, 8, 9, 7]));
+
+// nespėjau
