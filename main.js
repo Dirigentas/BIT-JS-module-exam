@@ -49,13 +49,10 @@ for (let i = 0; i < 5; i++) {
 
 console.log('========== 5 uzduotis');
 // 5. Naudojant while ciklą, spausdinti atsitiktinius skaičius nuo 1 iki 10. Paskutinis atspausdintas skaičius turi būti 5.(7 taškai)
-let penki = 1;
-while (penki <= 5) {
-    console.log(Math.floor(Math.random() * (10 - 1 + 1) + 1));
-    if (penki === 5) {
-        console.log(penki);
-    }
-    penki++;
+let penki = 0;
+while (penki !== 5) {
+    penki = Math.floor(Math.random() * (10 - 1 + 1) + 1);
+    console.log(penki);
 }
 
 console.log('========== 6 uzduotis');
@@ -132,13 +129,10 @@ console.log('========== 10 uzduotis');
 //     "(XXX) XXX-XXXX". (10 taškų)
 
 function telefonoNumeris(a) {
-    let nr = "(XXX) XXX-XXXX";
-    nr = nr.split('')
+    if (!Array.isArray(a)) return 'kintamasis nėra masyvas';
 
-    const nr2 = nr.map((n, i) => n === 'X' ? a[i] : n);
+    for (let i of a) if (typeof i !== 'number') return 'masyvo elementai nėra skaičiai';
 
-    return nr2;
+    return `Tel. Nr.: (${a[0]}${a[1]}${a[2]}) ${a[3]}${a[4]}${a[5]}-${a[6]}${a[7]}${a[8]}${a[9]}`;
 }
 console.log(telefonoNumeris([1, 2, 3, 4, 5, 6, 7, 8, 9, 7]));
-
-// nespėjau
